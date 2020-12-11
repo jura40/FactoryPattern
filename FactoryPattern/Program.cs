@@ -7,20 +7,24 @@ namespace FactoryPattern
         static void Main()
         {
             CardFactory factory = null;
+
+            Console.WriteLine("Enter köp");
+            int saldo = Convert.ToInt32(Console.ReadLine());
          
-            Console.Write("Enter the card type you would like to have Alen je faca: ");
+            Console.Write("Enter the card type you would like to have: ");
             string card = Console.ReadLine();
+            
 
             switch (card.ToLower())
             {
                 case "debit":
-                    factory = new DebitFactory(50000, 0);
+                    factory = new DebitFactory(5000, saldo);
                     break;
                 case "titanium":
-                    factory = new TitaniumFactory(100000, 500);
+                    factory = new TitaniumFactory(10000, saldo);
                     break;
                 case "platinum":
-                    factory = new PlatinumFactory(500000, 1000);
+                    factory = new PlatinumFactory(50000, saldo);
                     break;
                 default:
                     break;
